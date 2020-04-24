@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function sumFunc(x,y){
+                const sumPromise = new Promise((resolve, reject) => {
+                    setTimeout(()=>{
+                        resolve(x+y);
+                    }, 3000);
+                });
+                sumPromise.then(value =>{
+                    alert(x+y);
+                })
+            }
+
+            function multiFunc(p,q){
+                const multiPromise = new Promise((resolve, reject) => {
+                    setTimeout(()=>{
+                        resolve(p*q);
+                    }, 2000);
+                });
+                multiPromise.then(value => {
+                    alert(p*q);
+                })
+            }
+
+            async function resultFunc(){
+                const sumF = await sumFunc(5, 10);
+                const multiF = await multiFunc(5, 6);
+            }
+        </script>
+    </head>
+    <body>
+        <p>Testing the asynchronous javascript!!</p>
+        <button onclick="resultFunc();">Click Me!</button>
+    </body>
+</html>
